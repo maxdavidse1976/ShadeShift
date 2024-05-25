@@ -22,7 +22,16 @@ public class Player : MonoBehaviour
     [Header("Dimension settings")] 
     [SerializeField] bool _whiteDimension = true;
     [SerializeField] GameObject _whiteDimensionObject;
+    [SerializeField] GameObject _whiteDimensionFloor;
+    [SerializeField] GameObject _whiteDimensionLeftWall;
+    [SerializeField] GameObject _whiteDimensionRightWall;
+    [SerializeField] GameObject _whiteDimensionCeiling;
     [SerializeField] GameObject _blackDimensionObject;
+    [SerializeField] GameObject _blackDimensionFloor;
+    [SerializeField] GameObject _blackDimensionLeftWall;
+    [SerializeField] GameObject _blackDimensionRightWall;
+    [SerializeField] GameObject _blackDimensionCeiling;
+
     [SerializeField] GameObject _finishFlagObject;
     [SerializeField] Sprite _blackFinishFlag;
     [SerializeField] Sprite _whiteFinishFlag;
@@ -149,6 +158,10 @@ public class Player : MonoBehaviour
         {
             _whiteDimensionObject.gameObject.SetActive(true);
             _blackDimensionObject.gameObject.SetActive(false);
+            _whiteDimensionFloor.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            _whiteDimensionLeftWall.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            _whiteDimensionRightWall.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            _whiteDimensionCeiling.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
             Camera.main.backgroundColor = Color.white;
             _finishFlagObject.gameObject.GetComponent<SpriteRenderer>().sprite = _blackFinishFlag;
         }
@@ -156,6 +169,10 @@ public class Player : MonoBehaviour
         {
             _whiteDimensionObject.gameObject.SetActive(false);
             _blackDimensionObject.gameObject.SetActive(true);
+            _whiteDimensionFloor.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _whiteDimensionLeftWall.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _whiteDimensionRightWall.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            _whiteDimensionCeiling.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             Camera.main.backgroundColor = Color.black;
             _finishFlagObject.gameObject.GetComponent<SpriteRenderer>().sprite = _whiteFinishFlag;
         }
